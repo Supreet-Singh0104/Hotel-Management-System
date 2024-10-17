@@ -78,23 +78,37 @@ public class CustomerInfo extends JFrame {
 		contentPane.add(btnExit);
 		
 		JButton btnLoadData = new JButton("Load Data");
-		btnLoadData.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try{
-                                    Conn c  = new Conn();
-                                    
-				String displayCustomersql = "select * from Customer";
-				ResultSet rs = c.s.executeQuery(displayCustomersql);
-				table.setModel(DbUtils.resultSetToTableModel(rs));
-			}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-				
-			
-		});
+//		btnLoadData.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				try{
+//                                    Conn c  = new Conn();
+//                                    
+//				String displayCustomersql = "select * from Customer";
+//				ResultSet rs = c.s.executeQuery(displayCustomersql);
+//				table.setModel(DbUtils.resultSetToTableModel(rs));
+//			}
+//				catch(Exception e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//				
+//			
+//		});
+btnLoadData.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent arg0) {
+        try {
+            Conn c = new Conn();
+            // Query to fetch all customer details including room number
+            String displayCustomersql = "SELECT document, number, name, gender, country, room, checkintime, deposit FROM customer";
+            ResultSet rs = c.s.executeQuery(displayCustomersql);
+            table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+});
+
 		btnLoadData.setBounds(300, 510, 120, 30);
               //  btnLoadData.setBackground(Color.BLACK);
                 btnLoadData.setForeground(Color.BLACK);

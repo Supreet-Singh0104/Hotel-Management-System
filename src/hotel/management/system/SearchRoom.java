@@ -96,6 +96,7 @@ public class SearchRoom extends JFrame {
                 c1 = new Choice();
                 c1.add("Single Bed");
                 c1.add("Double Bed");
+                c1.add("Suite");
                 c1.setBounds(153, 70, 120, 20);
 		contentPane.add(c1);
                 
@@ -114,8 +115,8 @@ public class SearchRoom extends JFrame {
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String SQL = "select * from Room where bed_type = '"+c1.getSelectedItem()+"'";
-				String SQL2 = "select * from Room where availability = 'Available' AND bed_type = '"+c1.getSelectedItem()+"'";
+				String SQL = "select * from room where bed_type = '"+c1.getSelectedItem()+"'";
+				String SQL2 = "select * from room where availability = 'Available' AND bed_type = '"+c1.getSelectedItem()+"'";
 			try{			
                                 Conn c = new Conn();
 				rs = c.s.executeQuery(SQL);

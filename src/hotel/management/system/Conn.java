@@ -1,29 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hotel.management.system;
-
-
-
 
 import java.sql.*;  
 
-public class Conn{
+public class Conn {
     Connection c;
     Statement s;
-    public Conn(){  
-        try{  
+    
+    public Conn() {  
+        try {  
             Class.forName("com.mysql.cj.jdbc.Driver");  
-            c =DriverManager.getConnection("jdbc:mysql:///hotelmanagementsystem","root","supreet361"); 
+            // Updating the connection URL to match your new MySQL Workbench section
+            c = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hotel_management_system", "root", "supreet361"); 
             
-            s =c.createStatement();  
-            
+            s = c.createStatement();  
            
-        }catch(Exception e){ 
+        } catch (Exception e) { 
             System.out.println(e);
         }  
     }  
-}  
-
+}

@@ -25,10 +25,10 @@ public class Dashboard extends JFrame {
         add(backgroundLabel);
 
         // Set up welcome message
-        JLabel welcomeLabel = new JLabel("THE TAJ GROUP WELCOMES YOU");
+        JLabel welcomeLabel = new JLabel("Hotel Management System");
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setFont(new Font("Tahoma", Font.PLAIN, 46));
-        welcomeLabel.setBounds(600, 60, 1000, 85);
+        welcomeLabel.setBounds(500, 60, 1000, 85);
         backgroundLabel.add(welcomeLabel);
 
         // Create the menu bar

@@ -92,20 +92,22 @@ public class CheckOut extends JFrame{
                 add(l2);
                 
                 l2.addActionListener(new ActionListener() {
-                 public void actionPerformed(ActionEvent ae) {
-                 try {
-                    Conn c = new Conn();
-                    String number = c1.getSelectedItem();
-                    ResultSet rs = c.s.executeQuery("select * from customer where number = " + number);
+    public void actionPerformed(ActionEvent ae) {
+        try {
+            Conn c = new Conn();
+            String number = c1.getSelectedItem();
+            // Enclose number in single quotes if it's a text type (VARCHAR)
+            ResultSet rs = c.s.executeQuery("select * from customer where number = '" + number + "'");
 
-                    if (rs.next()) {
-                     t1.setText(rs.getString("room")); // Changed from "room_number" to "room"
-                      }
-                      } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                 }
-                });
+            if (rs.next()) {
+                t1.setText(rs.getString("room")); // Changed from "room_number" to "room"
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+});
+
 
 		
 		JLabel lblRoomNumber = new JLabel("Room Number:");
@@ -125,25 +127,27 @@ public class CheckOut extends JFrame{
 		JButton btnCheckOut = new JButton("Check Out");
 		
                 btnCheckOut.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                String id = c1.getSelectedItem();
-                String s1 = t1.getText();
-                String deleteSQL = "Delete from customer where number = " + id;
-                String q2 = "update room set availability = 'Available' where roomnumber = " + s1; // Changed to "roomnumber"
+    public void actionPerformed(ActionEvent e) {
+        String id = c1.getSelectedItem();
+        String s1 = t1.getText();
+        // Enclose id (number) in single quotes for SQL query
+        String deleteSQL = "Delete from customer where number = '" + id + "'";
+        String q2 = "update room set availability = 'Available' where roomnumber = " + s1; // Changed to "roomnumber"
 
-                Conn c = new Conn();
+        Conn c = new Conn();
 
-                 try {
-                   c.s.executeUpdate(deleteSQL);
-                   c.s.executeUpdate(q2);
-                   JOptionPane.showMessageDialog(null, "Check Out Successful");
-                   new Reception().setVisible(true);
-                   setVisible(false);
-                   } catch (SQLException e1) {
-                    e1.printStackTrace();
-                    }
-                   }
-                });
+        try {
+            c.s.executeUpdate(deleteSQL);
+            c.s.executeUpdate(q2);
+            JOptionPane.showMessageDialog(null, "Check Out Successful");
+            new Reception().setVisible(true);
+            setVisible(false);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+});
+
 		btnCheckOut.setBounds(50, 200, 100, 25);
     //            btnCheckOut.setBackground(Color.BLACK);
                 btnCheckOut.setForeground(Color.BLACK);

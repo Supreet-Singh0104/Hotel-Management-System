@@ -96,7 +96,7 @@ public class AddRoom extends JFrame implements ActionListener{
 	contentPane.add(l5);
 
 
-        comboBox_3 = new JComboBox(new String[] { "Single Bed", "Double Bed"});
+        comboBox_3 = new JComboBox(new String[] { "Single Bed", "Double Bed","Suite"});
 	comboBox_3.setBounds(176, 230, 154, 20);
 	contentPane.add(comboBox_3);
 

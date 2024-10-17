@@ -70,7 +70,7 @@ public class AddEmployee extends JFrame { //Third Frame
             Address.setBounds(60, 170, 150, 27);
             add(Address);
 			
-            String course[] = {"Front Desk Clerks","Porters","Housekeeping","Kitchen Staff","Room Service","Waiter/Waitress","Manager","Accountant","Chef"};
+            String course[] = {"Front Desk Clerks","Porters","Housekeeping","Housekeeping Manager","Kitchen Staff","Room Service","Waiter/Waitress","Manager","Accountant","Chef","Receptionist","HR"};
             c1 = new JComboBox(course);
             c1.setBackground(Color.WHITE);
             c1.setBounds(200,170,150,30);

@@ -122,11 +122,11 @@ public class Employee extends JFrame {
 		l2.setBounds(656, 11, 86, 14);
 		contentPane.add(l2);
                 
-                JLabel l3 = new JLabel("Aadhar");
+                JLabel l3 = new JLabel("Gmail");
 		l3.setBounds(786, 11, 86, 14);
 		contentPane.add(l3);
                 
-                JLabel l4 = new JLabel("Gmail");
+                JLabel l4 = new JLabel("Aadhar");
 		l4.setBounds(896, 11, 86, 14);
 		contentPane.add(l4);
                 

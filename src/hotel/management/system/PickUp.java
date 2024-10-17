@@ -71,16 +71,29 @@ public class PickUp extends JFrame {
 		contentPane.add(lblTypeOfCar);
 
 		
+//                c1 = new Choice();
+//                try{
+//                    Conn c = new Conn();
+//                    ResultSet rs = c.s.executeQuery("select * from driver");
+//                    while(rs.next()){
+//                        c1.add(rs.getString("capacity"));    
+//                    }
+//                }catch(Exception e){ }
+//                c1.setBounds(123, 94, 150, 25);
+//		contentPane.add(c1);
                 c1 = new Choice();
                 try{
-                    Conn c = new Conn();
-                    ResultSet rs = c.s.executeQuery("select * from driver");
-                    while(rs.next()){
-                        c1.add(rs.getString("capacity"));    
-                    }
-                }catch(Exception e){ }
-                c1.setBounds(123, 94, 150, 25);
-		contentPane.add(c1);
+                 Conn c = new Conn();
+                  // Use DISTINCT to only select unique seating capacities
+                  ResultSet rs = c.s.executeQuery("SELECT DISTINCT capacity FROM driver");
+                while(rs.next()){
+                    c1.add(rs.getString("capacity"));    
+                  }
+                }catch(Exception e){ 
+                     e.printStackTrace();
+                }
+c1.setBounds(123, 94, 150, 25);
+contentPane.add(c1);
 
                 
 		
